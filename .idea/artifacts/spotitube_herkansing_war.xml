@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="spotitube.herkansing:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>spotitube.herkansing</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="spotitube.herkansing.war">
+      <element id="artifact" artifact-name="spotitube.herkansing:war exploded" />
+    </root>
+  </artifact>
+</component>
