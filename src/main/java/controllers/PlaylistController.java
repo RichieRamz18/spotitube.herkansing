@@ -3,29 +3,28 @@ package controllers;
 
 import DTO.PlaylistDTO;
 import DTO.PlaylistsDTO;
+import services.PlaylistService;
 
+import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.ArrayList;
-import java.util.List;
 
 @Path("/playlists")
 public class PlaylistController {
+    private PlaylistService playlistService;
+
+    @Inject
+    public void setPlaylistService(PlaylistService playlistService){
+        this.playlistService = playlistService;
+    }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public PlaylistsDTO showPlaylists(@QueryParam("token") String token){
-        if(token.equals("12345678")) {
-            PlaylistsDTO collectionOfPlaylists = new PlaylistsDTO();
-            collectionOfPlaylists.setLength(1000);
-            ArrayList<PlaylistDTO> playlists = new ArrayList<>();
-            playlists.add(new PlaylistDTO(1, "hallo", true));
-            playlists.add(new PlaylistDTO(2, "HelloMyFriend", true));
-
-            collectionOfPlaylists.setPlaylists(playlists);
-            return collectionOfPlaylists;
-        }
-        else throw new NotAuthorizedException(400);
+    public Response playlists(@QueryParam("token") String token){
+        PlaylistsDTO playlists = playlistService.showPlaylists(token);
+        return Response.ok().entity(playlists).build();
     }
 
 }
