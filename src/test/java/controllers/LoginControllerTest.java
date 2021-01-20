@@ -12,6 +12,7 @@ class LoginControllerTest {
     private LoginRequestDTO fakeloginRequestDTO;
     private LoginResponseDTO fakeloginResponseDTO;
     private LoginService fakeService;
+    private static final int HTTP_STATUS_CODE_OK = 200;
 
     @BeforeEach
     public void setup(){
@@ -35,6 +36,6 @@ class LoginControllerTest {
         sut.setLoginService(fakeService);
 
         var response = sut.login(fakeloginRequestDTO);
-        Assertions.assertEquals(200, response.getStatus());
+        Assertions.assertEquals(HTTP_STATUS_CODE_OK, response.getStatus());
     }
 }

@@ -17,6 +17,7 @@ class PlaylistControllerTest {
      private PlaylistsDTO fakePlaylistsDTO;
      private ArrayList<PlaylistDTO> fakePlaylists;
      private LoginResponseDTO fakeLoginResponse;
+    private static final int HTTP_STATUS_CODE_OK = 200;
 
      @BeforeEach
      public void setup(){
@@ -40,6 +41,6 @@ class PlaylistControllerTest {
          var sut = new PlaylistController();
          sut.setPlaylistService(fakeService);
          var response = sut.playlists(fakeLoginResponse.getToken());
-         Assertions.assertEquals(200, response.getStatus());
+         Assertions.assertEquals(HTTP_STATUS_CODE_OK , response.getStatus());
      }
 }
