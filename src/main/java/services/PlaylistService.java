@@ -2,6 +2,7 @@ package services;
 
 import DTO.PlaylistDTO;
 import DTO.PlaylistsDTO;
+import DTO.TrackDTO;
 
 import javax.ws.rs.NotAuthorizedException;
 import javax.ws.rs.QueryParam;
