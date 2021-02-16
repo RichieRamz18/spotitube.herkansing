@@ -9,6 +9,10 @@ public class JDBCConnection {
     private static Connection myConn = null;
     private Properties properties;
 
+    public static void main(String[] args) {
+
+    }
+
     public Connection createDBConnection(){
         properties = new ReadProperties().getProperties();
         try{

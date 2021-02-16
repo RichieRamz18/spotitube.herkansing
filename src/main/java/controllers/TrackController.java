@@ -30,7 +30,7 @@ public class TrackController {
     @Path("playlists/{id}/tracks")
     @Produces(MediaType.APPLICATION_JSON)
     public TracksDTO getTracksFromPlaylist(@PathParam("id") int playlistID, @QueryParam("token") String token){
-        if (token.equals("12345678") && playlistID == (1 | 2)){
+        if (token.equals("12345678") && playlistID == 1) {
             TracksDTO tracksCollection = new TracksDTO();
             ArrayList<TrackDTO> tracks = new ArrayList<>();
             tracks.add(new TrackDTO(1, "Bad", "Michael Jackson", 345, "Bad", 5, "0601998", "none", true));
