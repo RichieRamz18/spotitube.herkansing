@@ -45,4 +45,20 @@ class LoginServiceTest {
 
         Assertions.assertThrows(NotAuthorizedException.class, () -> sut.login(loginRequestDTO));
     }
+
+    @Test
+    public void TestCreateTokenData(){
+        //Act
+        var token = sut.createToken();
+        //Assert
+        Assertions.assertTrue(token.contains("token ="));
+    }
+
+    @Test
+    public void TestIfTokenIsAStringType(){
+        //Act
+        var token = sut.createToken();
+        //Assert
+        Assertions.assertTrue(token instanceof String);
+    }
 }
